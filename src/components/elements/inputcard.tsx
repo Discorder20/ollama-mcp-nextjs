@@ -20,8 +20,8 @@ import {
 } from "@/components/ui/select"
 import {MODELS} from './config'
 
-export function InputCard({onSubmit}: {onSubmit: (model: string, prompt: string) => void}) {
-    const [model, setModel] = React.useState("");
+export function InputCard({onSubmit, blocked}: {onSubmit: (model: string, prompt: string) => void, blocked: boolean}) {
+    const [model, setModel] = React.useState(MODELS[0]);
     const [prompt, setPrompt] = React.useState("");
 
     const handleClick = () => {
@@ -42,7 +42,7 @@ export function InputCard({onSubmit}: {onSubmit: (model: string, prompt: string)
           <div className="grid w-full items-center gap-4">
           <div className="flex flex-col space-y-1.5">
               <Label htmlFor="model">Model</Label>
-              <Select onValueChange={setModel}>
+              <Select onValueChange={setModel} defaultValue={model}>
                 <SelectTrigger id="model" className="w-56">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
@@ -61,7 +61,7 @@ export function InputCard({onSubmit}: {onSubmit: (model: string, prompt: string)
         </form>
       </CardContent>
       <CardFooter className="flex justify-end">
-        <Button onClick={handleClick}>Deploy</Button>
+        <Button disabled={blocked} onClick={handleClick}>Send</Button>
       </CardFooter>
     </Card>
   )
