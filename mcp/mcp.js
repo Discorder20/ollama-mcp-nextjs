@@ -27,6 +27,15 @@ server.tool("get_articles_by_tag", "it gives you all the articles with selected 
   }
 );
 
+server.tool("get_articles", "it gives you all articles ",
+  {},
+  async () => {
+    return {
+      content: [{ type: "text", text: JSON.stringify(articles) }]
+    }
+  }
+);
+
 
 // Start receiving messages on stdin and sending messages on stdout
 const transport = new StdioServerTransport();

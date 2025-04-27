@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import {MODELS} from './config'
+import {MODELS, PROMPTS} from './config'
 
 export function InputCard({onSubmit, blocked}: {onSubmit: (model: string, prompt: string) => void, blocked: boolean}) {
     const [model, setModel] = React.useState(MODELS[0]);
@@ -56,6 +56,15 @@ export function InputCard({onSubmit, blocked}: {onSubmit: (model: string, prompt
               <Label htmlFor="prompt">Prompt</Label>
               <Input defaultValue={prompt} onChange={(e) => {setPrompt(e.target.value)}} id="prompt" placeholder="Your message here" autoComplete="off" />
             </div>
+          </div>
+          <div className="flex flex-row space-x-3 mt-3 justify-center">
+            {PROMPTS.map((promptName) => {
+              return (
+                <Card onClick={() => {setPrompt(promptName)}} className="hover:shadow-md transition-shadow">
+                  <CardContent className="flex items-center justify-center h-full">{promptName}</CardContent>
+                </Card>
+              )
+            })}
           </div>
       </CardContent>
       <CardFooter className="flex justify-end">

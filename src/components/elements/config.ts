@@ -4,4 +4,10 @@ const MODELS = [
     "qwen2.5:14b"
 ]
 
-export {MODELS};
+const PROMPTS =[
+    "what tags do we have?",
+    "give me articles with tag technology in form of list",
+    "what articles do we have?"
+]
+
+export {MODELS, PROMPTS};

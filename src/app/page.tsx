@@ -56,6 +56,7 @@ export default function Home() {
           priority
         />
       </div>
+      <P>Made by Discorder20 <a className="text-blue-600" href="https://github.com/Discorder20/ollama-mcp-nextjs">See the repo here</a></P>
     </main>
   );
 }

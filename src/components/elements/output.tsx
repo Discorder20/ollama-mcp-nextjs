@@ -15,7 +15,7 @@ export type Messages ={
 
 export default function OutputChat({messages}: Messages) {
   return (
-      <main className="flex-1 overflow-y-auto p-4 space-y-4 w-full shadow-lg m-4 rounded-lg">
+      <main className="flex-1 overflow-y-auto p-4 space-y-4 w-full shadow-lg m-4 rounded-lg max-h-[50vh] md:max-h-[30vh]">
         {/* <div className="flex items-end space-x-2">
           <Avatar>
             <AvatarImage src="/placeholder-user.jpg" alt="User Avatar" />
