@@ -6,16 +6,25 @@ import { Input } from "@/components/ui/input";
 import { InputCard } from "@/components/elements/inputcard";
 import OutputChat, { Messages } from "@/components/elements/output";
 import { useState } from "react";
+import executePrompt from "@/lib/executeprompt";
 
 export default function Home() {
   const [messages, setMessages] = useState<Messages>({messages: []});
   const [blocked, setBlocked] = useState(false);
 
-  const handlePrompt = (model: string, prompt: string) => {
+  const handlePrompt = async (model: string, prompt: string) => {
     let newMessages = [...messages.messages];
     newMessages.push({ role: "user", content: prompt });
     setMessages({messages: newMessages});
     setBlocked(true);
+    const data = await executePrompt(model, prompt);
+    if (data) {
+      newMessages.push({ role: "model", content: data });
+      setMessages({messages: newMessages});
+    } else {
+      alert("Error executing prompt");   
+    }
+    setBlocked(false);
   }
 
   return (

@@ -38,7 +38,6 @@ export function InputCard({onSubmit, blocked}: {onSubmit: (model: string, prompt
         <CardTitle>Input</CardTitle>
       </CardHeader>
       <CardContent>
-        <form>
           <div className="grid w-full items-center gap-4">
           <div className="flex flex-col space-y-1.5">
               <Label htmlFor="model">Model</Label>
@@ -55,10 +54,9 @@ export function InputCard({onSubmit, blocked}: {onSubmit: (model: string, prompt
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="prompt">Prompt</Label>
-              <Input value={prompt} onChange={(e) => {setPrompt(e.target.value)}} id="prompt" placeholder="Your message here" />
+              <Input defaultValue={prompt} onChange={(e) => {setPrompt(e.target.value)}} id="prompt" placeholder="Your message here" autoComplete="off" />
             </div>
           </div>
-        </form>
       </CardContent>
       <CardFooter className="flex justify-end">
         <Button disabled={blocked} onClick={handleClick}>Send</Button>
