@@ -7,7 +7,7 @@ const MODELS = [
 const PROMPTS =[
     "what tags do we have?",
     "give me articles with tag technology in form of list",
-    "what articles do we have?"
+    "what articles do we have? display some of them in a list"
 ]
 
 export {MODELS, PROMPTS};

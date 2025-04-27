@@ -11,7 +11,7 @@ export default async function executePrompt(model: string, prompt: string) : Pro
     if (stderr && !stderr.includes("'stty' is not recognized")) {
         console.error(`Error: ${stderr}`);
         return null;
-    }
+      }
 
     return String(stdout);
 }
