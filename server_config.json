@@ -1,0 +1,8 @@
+{
+    "mcpServers": {
+      "main": {
+        "command": "node",
+        "args": ["./mcp/mcp.js"]
+      }
+    }
+  }
