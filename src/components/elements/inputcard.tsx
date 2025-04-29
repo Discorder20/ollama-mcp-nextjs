@@ -61,7 +61,7 @@ export function InputCard({onSubmit, blocked}: {onSubmit: (model: string, prompt
             {PROMPTS.map((promptName) => {
               return (
                 <Card onClick={() => {setPrompt(promptName)}} className="hover:shadow-md transition-shadow">
-                  <CardContent className="flex items-center justify-center h-full">{promptName}</CardContent>
+                  <CardContent className="p-0 flex justify-center items-center"><p className="h-full p-3">{promptName}</p></CardContent>
                 </Card>
               )
             })}
